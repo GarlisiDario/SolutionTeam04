@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppTeam04.Views.PlantjesPage"
+             Loaded="ContentPage_Loaded"
+             Title="Plantjes">
+    <VerticalStackLayout Spacing="5">
+        <Label 
+            Text="Welcome to GreenVille"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <ListView Background="LightGreen" x:Name="ListPlant" Margin="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="GreenYellow" Padding="10">
+                            <Image Source="{Binding imageNaam}"></Image>
+                            <Label Text="{Binding PlantNaam}"></Label>
+                            <Label Text="{Binding PlantSoort}"></Label>
+                            <Label Text="{Binding  Prijs}"></Label>
+                            <Label Text="{Binding BestSeason}"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="BtnAdd" Clicked="BtnAdd_Clicked" Text="Add Plant" Background="Green"></Button>
+    </VerticalStackLayout>
+</ContentPage>

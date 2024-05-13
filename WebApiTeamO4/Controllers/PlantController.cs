@@ -13,7 +13,7 @@ namespace WebApiTeamO4.Controllers
     public class PlantController : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<Plant>> GetPlant()
+        public async Task<ActionResult<IEnumerable<Plant>>> GetPlant()
         {
             var getPlants = Plantjes.GetPlant();
             if (getPlants.Succeeded)
@@ -26,6 +26,7 @@ namespace WebApiTeamO4.Controllers
                 Debug.WriteLine(error);
             return BadRequest();
         }
+       
 
         [HttpPost("AddPlant")]
 

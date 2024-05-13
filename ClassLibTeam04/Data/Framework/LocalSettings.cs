@@ -13,7 +13,7 @@ namespace ClassLibTeam04.Data.Framework
             string connectionString = "Trusted_Connection=True;";
             //string connectionString = "user id = pxluser;";
             //connectionString += "Password = pxluser;";
-            connectionString += $@"Server=DESKTOP-JEALUUV\SQLEXPRESS;";
+            connectionString += $@"Server=Desktop-Dario\SQLEXPRESS;";
             connectionString += $"Database=DB_Tuintje";
             return connectionString;
         }
