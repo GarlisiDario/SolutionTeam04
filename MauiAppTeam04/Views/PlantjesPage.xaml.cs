@@ -1,5 +1,6 @@
 
 using ClassLibTeam04.Business.Entities;
+using CommunityToolkit.Maui.Views;
 using Newtonsoft.Json;
 
 
@@ -14,7 +15,7 @@ public partial class PlantjesPage : ContentPage
 
         
 	}
-    
+    List<Plant> plants;
     private const string REST_URL = "https://5v69rr6v-7194.euw.devtunnels.ms/api/";
 
     private void BtnAdd_Clicked(System.Object sender, System.EventArgs e)
@@ -40,9 +41,8 @@ public partial class PlantjesPage : ContentPage
                 {
 
                     string json = await response.Content.ReadAsStringAsync();
-                    List<Plant> plants = JsonConvert.DeserializeObject<List<Plant>>(json);
-
-                    ListPlant.ItemsSource = plants;
+                     plants = JsonConvert.DeserializeObject<List<Plant>>(json);
+                     ListPlant.ItemsSource = plants;
                 }
                 else
                 {
@@ -58,4 +58,12 @@ public partial class PlantjesPage : ContentPage
         }
         
     }
+
+    private void BtnSound_Clicked(object sender, EventArgs e)
+    {
+      
+        mediaElement.IsVisible = true;
+        mediaElement.Play();
+    }
+
 }

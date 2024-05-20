@@ -1,30 +1,56 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppTeam04.Views.PlantjesPage"
              Loaded="ContentPage_Loaded"
-             Title="Plantjes">
+             Title="Plantjes"
+             >
     <VerticalStackLayout Spacing="5">
+        <Image Source="plantbg.png" HeightRequest="100" WidthRequest="100" />
+        <toolkit:MediaElement x:Name="mediaElement" WidthRequest="200" HeightRequest="100" IsVisible="Hidden" Source="./Rick.mp4"/>
         <Label 
             Text="Welcome to GreenVille"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <ListView Background="LightGreen" x:Name="ListPlant" Margin="10">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout BackgroundColor="GreenYellow" Padding="10">
-                            <Image Source="{Binding imageNaam}"></Image>
-                            <Label Text="{Binding PlantNaam}"></Label>
-                            <Label Text="{Binding PlantSoort}"></Label>
-                            <Label Text="{Binding  Prijs}"></Label>
-                            <Label Text="{Binding BestSeason}"></Label>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            HorizontalOptions="Center"
+            FontSize="20"
+            FontAttributes="Bold"
+            TextColor="MediumSeaGreen"/>
+        <Border Background="#558B2F" Margin="5" StrokeShape="RoundRectangle  10,10,10,10">
+            <ListView x:Name="ListPlant" Margin="10" HasUnevenRows="True"  >
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <HorizontalStackLayout BackgroundColor="#8D6E63" Padding="10"  >
+                                <Image Source="{Binding imageFileName}" HeightRequest="100" WidthRequest="100"></Image>
+                                <VerticalStackLayout Margin="5" >
+                                <Label FontSize="15"  Margin="2" TextColor="White" Text="{Binding PlantNaam}" ></Label>
+                                    <HorizontalStackLayout>
+                                        <Label TextColor="Wheat" Margin="2">Soort:</Label>
+                                        <Label FontSize="15" Margin="2" TextColor="White" Text="{Binding  PlantSoort}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label TextColor="Wheat" Margin="2">Prijs:</Label>
+                                        <Label FontSize="15" Margin="2" TextColor="White" Text="{Binding  Prijs}"></Label>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label  TextColor="Wheat" Margin="2">Best Season</Label>
+                                        <Label FontSize="15" Margin="2" TextColor="White" Text="{Binding BestSeason}"></Label>
+                                        <Button x:Name="BtnSound" FontSize="10" Clicked="BtnSound_Clicked"  Text="Sound" WidthRequest="70" Background="#558B2F" Margin="30,0,0,0" ></Button>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button x:Name="BtnAdd" Clicked="BtnAdd_Clicked" Text="Add Plant" WidthRequest="150" Background="#558B2F" Margin="3" ></Button>
+            <Button x:Name="BtnLoadPage" Text="Show plants" WidthRequest="150" Background="#558B2F" Margin="3"></Button>
+        </HorizontalStackLayout>
+        
 
-        <Button x:Name="BtnAdd" Clicked="BtnAdd_Clicked" Text="Add Plant" Background="Green"></Button>
+        
     </VerticalStackLayout>
 </ContentPage>

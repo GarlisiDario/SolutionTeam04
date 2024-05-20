@@ -57,6 +57,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\Courgette.png" />
+	  <None Remove="Resources\Images\kerstomaat.jpg" />
+	  <None Remove="Resources\Images\PlantBG.png" />
+	  <None Remove="Resources\Images\ReuzeTomaat.jpg" />
+	  <None Remove="Resources\Images\RodePeper.jpg" />
+	  <None Remove="Resources\Raw\Rick.mp4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="3.1.1" />
 		<PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.1.38" />
@@ -68,6 +78,21 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\ClassLibTeam04\ClassLibTeam04.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Resources\Raw\sound.mp3">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Resource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Update="Resources\Raw\Rick.mp4">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\sound.mp3">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </MauiAsset>
 	</ItemGroup>
 
 	<ItemGroup>

@@ -18,7 +18,7 @@ namespace ClassLibTeam04
         public SelectResult GetPlant()
         {
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"Select * from {TableName} ";
+            command.CommandText = $"exec GetPlantInfo";
             return base.Select(command);
         }
         public InsertResult AddPlant(string naam,string soort,string season,decimal prijs,string image)
